@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Knapkart Girija - Login</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="container">
+    <h1>Login to Knapkart Girija</h1>
+    <form id="loginForm" onsubmit="return validateForm()">
+      <label for="email">Email:</label>
+      <input type="email" id="email" placeholder="girija@gmail.com" />
+      <div class="error" id="emailError"></div>
+
+      <label for="password">Password:</label>
+      <input type="password" id="password" />
+      <div class="error" id="passwordError"></div>
+
+      <button type="submit" class="btn">Login</button>
+      <div class="error" id="loginError"></div>
+    </form>
+  </div>
+
+  <script>
+    function validateForm() {
+      const email = document.getElementById("email").value.trim();
+      const password = document.getElementById("password").value.trim();
+
+      // Clear previous errors
+      document.getElementById("emailError").innerText = "";
+      document.getElementById("passwordError").innerText = "";
+      document.getElementById("loginError").innerText = "";
+
+      let valid = true;
+
+      if (!email) {
+        document.getElementById("emailError").innerText = "Please fill in the email.";
+        valid = false;
+      }
+      if (!password) {
+        document.getElementById("passwordError").innerText = "Please fill in the password.";
+        valid = false;
+      }
+
+      if (!valid) return false;
+
+      if (email !== "girija@gmail.com" || password !== "girija@123") {
+        document.getElementById("loginError").innerText = "Incorrect email or password.";
+        return false;
+      }
+
+      // If validation passes, redirect to welcome page
+      window.location.href = "index1.html";
+      return false;
+    }
+  </script>
+</body>
+</html>
